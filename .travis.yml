@@ -1,0 +1,9 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t $DOCKERHUB_REPO_NAME .
+  - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+  - docker push $DOCKERHUB_REPO_NAME
