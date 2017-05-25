@@ -4,7 +4,4 @@ services:
   - docker
 
 script:
-  - sed -i -e "s#FROM.*#FROM $DOCKERHUB_REPO_NAME:$(git rev-parse HEAD~1)#" ./Dockerfile
-  - docker tag $(docker build . | tail -n 1 | cut -d' ' -f 3) $DOCKERHUB_REPO_NAME:$(git rev-parse HEAD)
-  - docker login -e $DOCKERHUB_EMAIL -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
-  - docker push $DOCKERHUB_REPO_NAME
+  - ls -al
